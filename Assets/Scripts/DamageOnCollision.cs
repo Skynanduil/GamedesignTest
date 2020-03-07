@@ -2,23 +2,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-    public class DamageOnCollision : MonoBehaviour
+public class DamageOnCollision : MonoBehaviour
+{
+    public List<string> Targets;
+    public bool DestroyOnContact;
+
+    public DamageAbility Damage;
+
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        public float DamageDealt;
-        public bool DestroyOnContact;
-
-        void OnTriggerEnter2D(Collider2D collider)
+        if (Targets.Contains(collider.gameObject.tag))
         {
-            if (collider.gameObject.CompareTag("Player"))
+            var dps = collider.gameObject.AddComponent<DamageAbility>();
+
+            dps.DamageDealt = Damage.DamageDealt;
+            dps.Delay = Damage.Delay;
+            dps.DamageOverTime = Damage.DamageOverTime;
+            if (dps.DamageOverTime)
             {
-                collider.gameObject.GetComponent<Health>().ReduceHealth(DamageDealt);
-                if (DestroyOnContact)
-                {
-                    Destroy(gameObject);
-                }
+                dps.ApplyEveryNSeconds = Damage.ApplyEveryNSeconds;
+                dps.Interval = Damage.Interval;
             }
         }
+
+        if (DestroyOnContact)
+        {
+            Destroy(gameObject);
+        }
     }
+}
+
