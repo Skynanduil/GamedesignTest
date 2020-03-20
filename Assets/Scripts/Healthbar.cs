@@ -5,42 +5,51 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Slider))]
+[RequireComponent(typeof(Text))]
 public class Healthbar : MonoBehaviour
 {
-
-    public Slider slider;
-    public BaseStats baseStats;
-    public Health health;
+    public Slider Slider;
+    public BaseStats BaseStats;
+    public Health Health;
+    public Text HealthDisplay;
 
     public void SetMaxHealth(float health)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        Slider.maxValue = health;
     }
 
     public void SetHealth(float health)
     {
-        slider.value = health;
+        Slider.value = health;
     }
 
     void Start()
     {
-        SetMaxHealth((baseStats.BaseHealth));
+        SetMaxHealth((BaseStats.BaseHealth));
+        Slider.value = Health.CurrentHealth;
+        UpdateDisplayText();
     }
 
     void OnEnable()
     {
-        health.OnHealthChanged.AddListener(OnHealthChanged);
+        Health.OnHealthChanged.AddListener(OnHealthChanged);
     }
 
     void OnDisable()
     {
-        health.OnHealthChanged.RemoveListener(OnHealthChanged);
+        Health.OnHealthChanged.RemoveListener(OnHealthChanged);
+    }
+
+    private void UpdateDisplayText()
+    {
+        HealthDisplay.text = $"{Health.CurrentHealth}/{BaseStats.BaseHealth}";
     }
 
     public void OnHealthChanged()
     {
-        SetHealth(health.CurrentHealth);
+        SetHealth(Health.CurrentHealth);
+        UpdateDisplayText();
     }
 
 }

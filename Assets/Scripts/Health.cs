@@ -8,20 +8,30 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
+    [RequireComponent(typeof(BaseStats))]
     public class Health : MonoBehaviour
     {
-        private BaseStats baseStats;
+        private float _maxHealth;
         public float CurrentHealth;
-        public UnityEvent OnHealthChanged;
+        [HideInInspector] public UnityEvent OnHealthChanged;
+        [HideInInspector] public UnityEvent OnHealthZero;
 
         void Start()
         {
-            baseStats = GetComponent<BaseStats>();
+            _maxHealth = GetComponent<BaseStats>().BaseHealth;
         }
 
         public void ReduceHealth(float damage)
         {
             CurrentHealth -= damage;
+
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+                OnHealthZero.Invoke();
+            }
+
+
             OnHealthChanged.Invoke();
         }
 
@@ -29,7 +39,7 @@ namespace Assets.Scripts
         {
             CurrentHealth += restored;
 
-            if (CurrentHealth > baseStats.BaseHealth) CurrentHealth = baseStats.BaseHealth;
+            if (CurrentHealth > _maxHealth) CurrentHealth = _maxHealth;
 
             OnHealthChanged.Invoke();
         }
