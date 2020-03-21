@@ -481,8 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60859f1b1862a09469dc49dd35b85073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformCount: 3
-  DelayBetweenSpawns: 1
+  PlatformCount: 30
   DistanceToTrigger: 3
   Target: {fileID: 156248946}
   LevelStart: {fileID: 2634975828562665862, guid: 921a34e8ef7f9a3438bce77720d6d291,
@@ -493,6 +492,7 @@ MonoBehaviour:
   - {fileID: 8800954390694732737, guid: eacccbb4cb884854db706069f2c2e6e3, type: 3}
   - {fileID: 6895709595855773145, guid: bd9ab5a5cc3d87646a000acf38f19038, type: 3}
   LevelEnd: {fileID: 260539547884248333, guid: ee4693cbe04c7684d8f1faaeff3e86d3, type: 3}
+  _prototype: {fileID: 0}
 --- !u!4 &1746553770
 Transform:
   m_ObjectHideFlags: 0
@@ -583,6 +583,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281446032965470740, guid: ec87a17d2be03a84dbfeee81ee2c7a44,
+        type: 3}
+      propertyPath: Immortal
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2281446032965470742, guid: ec87a17d2be03a84dbfeee81ee2c7a44,
         type: 3}

@@ -13,6 +13,7 @@ namespace Assets.Scripts
     {
         private float _maxHealth;
         public float CurrentHealth;
+        public bool Immortal = false;
         [HideInInspector] public UnityEvent OnHealthChanged;
         [HideInInspector] public UnityEvent OnHealthZero;
 
@@ -23,6 +24,7 @@ namespace Assets.Scripts
 
         public void ReduceHealth(float damage)
         {
+            if (Immortal) return;
             CurrentHealth -= damage;
 
             if (CurrentHealth <= 0)
