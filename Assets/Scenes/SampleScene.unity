@@ -487,12 +487,11 @@ MonoBehaviour:
   LevelStart: {fileID: 2634975828562665862, guid: 921a34e8ef7f9a3438bce77720d6d291,
     type: 3}
   ToPrint:
-  - {fileID: 7750411762787675213, guid: 528a46d042222294c8158c795f3f549a, type: 3}
+  - {fileID: 412631296172414261, guid: ef64f585e9cb73a429a8ef4ea56e43d1, type: 3}
   - {fileID: 7353990841572413113, guid: 97a46b4f19b47a64fa5e7d2cbac154af, type: 3}
   - {fileID: 8800954390694732737, guid: eacccbb4cb884854db706069f2c2e6e3, type: 3}
   - {fileID: 6895709595855773145, guid: bd9ab5a5cc3d87646a000acf38f19038, type: 3}
   LevelEnd: {fileID: 260539547884248333, guid: ee4693cbe04c7684d8f1faaeff3e86d3, type: 3}
-  _prototype: {fileID: 0}
 --- !u!4 &1746553770
 Transform:
   m_ObjectHideFlags: 0
@@ -706,12 +705,12 @@ PrefabInstance:
     - target: {fileID: 8720851909550248877, guid: 4add82bad8c83624aa01155a77da6f60,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -161
+      value: -102
       objectReference: {fileID: 0}
     - target: {fileID: 8720851909550248877, guid: 4add82bad8c83624aa01155a77da6f60,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 263.08
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 8720851909550248877, guid: 4add82bad8c83624aa01155a77da6f60,
         type: 3}

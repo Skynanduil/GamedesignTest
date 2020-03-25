@@ -14,7 +14,7 @@ public class PlatformFactory: MonoBehaviour
     [SerializeField] private Transform[] ToPrint;
     [SerializeField] private Transform LevelEnd;
 
-    [SerializeField] private Transform _prototype;
+    //[SerializeField] private Transform _prototype;
 
     private Vector3 _endPoint = new Vector3(0, 0, 0);
     private static float _levelWidth = 15f; //I dont know how to get the width of a parent object
@@ -49,8 +49,8 @@ public class PlatformFactory: MonoBehaviour
     {
         Transform _toSpawn = toSpawn;
         _toSpawn.transform.position = new Vector3(_endPoint.x + _levelWidth, _endPoint.y, _endPoint.z);
-        Instantiate(toSpawn);
-        _endPoint = toSpawn.position;
+        Instantiate(_toSpawn);
+        _endPoint = _toSpawn.position;
 
         Debug.Log(_endPoint);
     }
